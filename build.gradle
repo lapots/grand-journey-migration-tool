@@ -4,4 +4,12 @@ repositories {
     jcenter()
 }
 
-dependencies {}
+dependencies {
+    compile 'org.postgresql:postgresql:42.2.2'
+    compile 'org.codehaus.groovy:groovy-all:2.4.10'
+}
+
+task run_script(type: JavaExec) {
+    main = 'com.lapots.breed.migration.script'
+    classpath = sourceSets.main.runtimeClasspath
+}
