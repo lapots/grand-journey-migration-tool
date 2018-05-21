@@ -10,7 +10,7 @@ class RdsPgConnector implements IConnector, IDbOperator {
 
     @Override
     def connect() {
-        connection = Sql.newInstance("jdbc:postgresql://$rds.host:$rds.port/$rds.name",
+        sql = Sql.newInstance("jdbc:postgresql://$rds.host:$rds.port/$rds.name",
             rds.login, rds.password, "org.postgresql.Driver")
     }
 
@@ -33,12 +33,7 @@ class RdsPgConnector implements IConnector, IDbOperator {
     }
 
     @Override
-    def readAll() {
-        // TODO: implement
-    }
-
-    @Override
-    def readById(Object id) {
-        // TODO: implement
+    def executeFunction(Object name, Object... params) {
+        return sql.firstRow("{call $name(?)}", params)[0]
     }
 }
