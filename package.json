@@ -1,0 +1,19 @@
+{
+  "name": "grand-journey-migration-tool",
+  "version": "1.0.0",
+  "description": "migration tool for data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lapots/grand-journey-migration-tool.git"
+  },
+  "author": "lapots",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lapots/grand-journey-migration-tool/issues"
+  },
+  "homepage": "https://github.com/lapots/grand-journey-migration-tool#readme"
+}
