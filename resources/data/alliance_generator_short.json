@@ -1,5 +1,6 @@
 {
-  "alliance":{
+  "name" : "alliance",
+  "name_parts": {
     "name_part_1":[
       "Ab",
       "Aen",

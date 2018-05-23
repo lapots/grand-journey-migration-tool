@@ -1,5 +1,6 @@
 {
-  "east_asian_town": {
+  "name": "east_asian_town",
+  "name_parts": {
     "name_part_1": [
       "Arida",
       "Asa",

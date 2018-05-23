@@ -6,14 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lapots/grand-journey-migration-tool.git"
+  "devDependencies": {
+    "lodash": "4.17.10"
   },
   "author": "lapots",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lapots/grand-journey-migration-tool/issues"
-  },
-  "homepage": "https://github.com/lapots/grand-journey-migration-tool#readme"
+  "license": "ISC"
 }
