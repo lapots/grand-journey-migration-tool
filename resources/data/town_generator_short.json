@@ -1,15 +1,23 @@
 {
   "name": "east_asian_town",
   "name_parts": {
-    "name_part_1": [
-      "Arida",
-      "Asa",
-      "Furu"
-    ],
-    "name_part_2": [
-      "betsu",
-      "bayan",
-      "bulag"
-    ]
+    "name_part_1": {
+      "precede_space": false,
+      "order": 1,
+      "parts": [
+        "Arida",
+        "Asa",
+        "Furu"
+      ]
+    },
+    "name_part_2": {
+      "precede_space": false,
+      "order": 2,
+      "parts": [
+        "betsu",
+        "bayan",
+        "bulag"
+      ]
+    }
   }
 }

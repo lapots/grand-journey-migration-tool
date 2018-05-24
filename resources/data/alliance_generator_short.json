@@ -1,20 +1,32 @@
 {
   "name" : "alliance",
   "name_parts": {
-    "name_part_1":[
-      "Ab",
-      "Aen",
-      "Zancl"
-    ],
-    "name_part_2":[
-      "aca",
-      "acia",
-      "ythrae",
-      "ytos"
-    ],
-    "name_part_3":[
-      "Alliance",
-      "Bond"
-    ]
+    "name_part_1": {
+      "precede_space": false,
+      "order": 1,
+      "parts": [
+        "Ab",
+        "Aen",
+        "Zancl"
+      ]
+    },
+    "name_part_2": {
+      "precede_space": false,
+      "order": 2,
+      "parts": [
+        "aca",
+        "acia",
+        "ythrae",
+        "ytos"
+      ]
+    },
+    "name_part_3": {
+      "precede_space": false,
+      "order": 3,
+      "parts": [
+        "Alliance",
+        "Bond"
+      ]
+    }
   }
 }
