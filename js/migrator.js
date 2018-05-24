@@ -14,13 +14,17 @@ dir.readFiles(dataPath, { match: /\.json$/ }, (err, content, next) => {
     const generatorName = jsn.name;
     const generatorParts = jsn.name_parts;
 
-    /*
     Object.entries(generatorParts).forEach(([key, value]) => {
-        value.forEach(item => {
-            console.log(`gnr: ${generatorName}; gnr_p: ${key}; gnr_p_v: ${item}`);
+        const pr_sp = value.precede_space;
+        const ordr = value.order;
+        const nm_prts = value.parts;
+
+        nm_prts.forEach(item => {
+            console.log(
+                `part_group_name: ${generatorName}; part_name: ${key}; part_value: ${item}; part_order:${ordr}; precede_space: ${pr_sp}`
+            );
         });
     });
-    */
 
     next();
 });
