@@ -11,8 +11,11 @@ dir.readFiles(dataPath, { match: /\.json$/ }, (err, content, next) => {
     const generatorName = jsn.name;
     const generatorParts = jsn.name_parts;
 
-    console.log(generatorName);
-    console.log(generatorParts);
+    Object.entries(generatorParts).forEach(([key, value]) => {
+        value.forEach(item => {
+            console.log(`gnr: ${generatorName}; gnr_p: ${key}; gnr_p_v: ${item}`);
+        });
+    });
 
     next();
 });
