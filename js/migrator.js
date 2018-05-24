@@ -2,6 +2,9 @@ const fs = require('fs');
 const _ = require('lodash'); // no uses for now
 const dir = require('node-dir');
 
+const { Pool, Client } = require('pg');
+const pool = new Pool();
+
 const dataPath = '../resources/data/';
 
 dir.readFiles(dataPath, { match: /\.json$/ }, (err, content, next) => {
@@ -11,11 +14,13 @@ dir.readFiles(dataPath, { match: /\.json$/ }, (err, content, next) => {
     const generatorName = jsn.name;
     const generatorParts = jsn.name_parts;
 
+    /*
     Object.entries(generatorParts).forEach(([key, value]) => {
         value.forEach(item => {
             console.log(`gnr: ${generatorName}; gnr_p: ${key}; gnr_p_v: ${item}`);
         });
     });
+    */
 
     next();
 });
