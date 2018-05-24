@@ -1,41 +1,19 @@
 const fs = require('fs');
-const _ = require('lodash');
+const _ = require('lodash'); // no uses for now
+const dir = require('node-dir');
 
 const dataPath = '../resources/data/';
 
-fs.readdir(dataPath, (err, filenames) => {
-    if (err) { throw err; }
+dir.readFiles(dataPath, { match: /\.json$/ }, (err, content, next) => {
+    if (err) throw err;
 
-    /*
-        Another possible approach
+    const jsn = JSON.parse(content);
+    const generatorName = jsn.name;
+    const generatorParts = jsn.name_parts;
 
-            filenames
-                .map(filename => dataPath + filename)
-                .forEach(filename => {
-                    fs.readFile(filename, 'utf-8', (err, data) => {
-                        if (err) { throw err; }
+    console.log(generatorName);
+    console.log(generatorParts);
 
-                        const jsn = JSON.parse(data); // json
-
-                        const generatorName = jsn.name;
-                        const generatorParts = jsn.name_parts;
-
-                        console.log(generatorName);
-                        console.log(generatorParts);
-                    })
-                });
-    */
-
-    let truePaths = _.map(filenames, filename => dataPath + filename)
-    _.each(truePaths, filename => {
-        fs.readFile(filename, 'utf-8', (err, data) => {
-            if (err) { throw err; }
-            const jsn = JSON.parse(data); // json
-            const generatorName = jsn.name;
-            const generatorParts = jsn.name_parts;
-            console.log(generatorName);
-            console.log(generatorParts);
-        })
-    });
+    next();
 });
 

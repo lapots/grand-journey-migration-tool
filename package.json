@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "lodash": "4.17.10"
+    "lodash": "4.17.10",
+    "node-dir": "0.1.17"
   },
   "author": "lapots",
   "license": "ISC"
