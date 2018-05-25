@@ -21,7 +21,7 @@
       ]
     },
     "name_part_3": {
-      "precede_space": false,
+      "precede_space": true,
       "order": 3,
       "parts": [
         "Alliance",

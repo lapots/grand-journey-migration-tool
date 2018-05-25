@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "lodash": "4.17.10",
+  "author": "lapots",
+  "license": "ISC",
+  "dependencies": {
+    "pg-promise": "^8.4.4",
     "node-dir": "0.1.17",
     "pg": "7.4.3"
-  },
-  "author": "lapots",
-  "license": "ISC"
+  }
 }

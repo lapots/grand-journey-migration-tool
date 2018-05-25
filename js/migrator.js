@@ -1,15 +1,29 @@
 const fs = require('fs');
-const _ = require('lodash'); // no uses for now
 const dir = require('node-dir');
+const pgp = require('pg-promise');
 
-const { Pool, Client } = require('pg');
-const pool = new Pool();
+const connection = {
+    user: '',
+    password: '',
+    port: ,
+    database: '',
+    host: ''
+};
 
-const dataPath = '../resources/data/';
+const db = pgp(connection);
+const cs = new pgp.helpers.ColumnSet(
+[
+    defCol('part_group_name'),
+    defCol('part_name'),
+    defCol('part_value'),
+    defCol('part_order'),
+    defCol('precede_space')
+], {table: 'generator.generators'});
 
-dir.readFiles(dataPath, { match: /\.json$/ }, (err, content, next) => {
+dir.readFiles('../resources/data/', { match: /\.json$/ }, (err, content, next) => {
     if (err) throw err;
 
+    const batch = []
     const jsn = JSON.parse(content);
     const generatorName = jsn.name;
     const generatorParts = jsn.name_parts;
@@ -20,12 +34,16 @@ dir.readFiles(dataPath, { match: /\.json$/ }, (err, content, next) => {
         const nm_prts = value.parts;
 
         nm_prts.forEach(item => {
-            console.log(
-                `part_group_name: ${generatorName}; part_name: ${key}; part_value: ${item}; part_order:${ordr}; precede_space: ${pr_sp}`
-            );
+            batch.push({part_group_name: generatorName, part_name: key, part_value: item, part_order: ordr, precede_space: pr_sp});
         });
+
     });
+
+    console.log(batch);
+    const insert = pgp.helpers.insert(batch, cs);
+    db.none(insert)
+        .then(() => { console.log('successfully added records')})
+        .catch(error => { console.log(error); });
 
     next();
 });
-
